@@ -1,0 +1,34 @@
+# User-specific files
+*.suo
+*.user
+
+# Build results
+Debug/
+Release/
+*.ncb
+*.aps
+*.obj
+.builds
+TestResult.xml
+output/
+*.vshost.exe
+*.Publish.xml
+
+# ReSharper is a .NET coding add-in
+_ReSharper*
+*.ReSharper
+
+# Others
+**/[Bb]in
+**/[Oo]bj
+sql
+TestResults
+*.Cache
+ClientBin
+stylecop.*
+~$*
+*.dbmdl
+*.log
+*.log.20*
+AssemblyCache.config
+GravityForce/Content/obj/GravityForceContent.contentproj.XactOutput.FileList.txt
