@@ -14,6 +14,8 @@ output/
 *.vshost.exe
 *.Publish.xml
 
+.vs/
+
 # ReSharper is a .NET coding add-in
 _ReSharper*
 *.ReSharper

@@ -15,7 +15,6 @@ using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using SpacePew.Extensions;
 using System.Linq;
-using System.Windows.Forms;
 
 namespace SpacePew
 {
@@ -139,7 +138,7 @@ namespace SpacePew
 
 			_graphics.CreateDevice();
 
-			Cursor.Hide();
+			//Cursor.Hide();
 
 			_graphics.PreferredBackBufferWidth = 1366;
 			_graphics.PreferredBackBufferHeight = 768;
