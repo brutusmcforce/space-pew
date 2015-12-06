@@ -16,19 +16,19 @@
 #begin Fonts/ConsoleFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
+/processorParam:TextureFormat=Color
 /build:Fonts/ConsoleFont.spritefont
 
 #begin Fonts/NetFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
+/processorParam:TextureFormat=Color
 /build:Fonts/NetFont.spritefont
 
 #begin Fonts/ScoreBoardFont.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
+/processorParam:TextureFormat=Color
 /build:Fonts/ScoreBoardFont.spritefont
 
 #begin Audio/Waves/bingo.wav
@@ -197,7 +197,7 @@
 #begin Fonts/Default.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
-/processorParam:TextureFormat=Compressed
+/processorParam:TextureFormat=Color
 /build:Fonts/Default.spritefont
 
 #begin Audio/Waves/beep.wav
