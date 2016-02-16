@@ -26,7 +26,6 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Xna.Framework.GamerServices;
 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -469,8 +468,6 @@ namespace TomShane.Neoforce.Controls
         ////////////////////////////////////////////////////////////////////////////        
         private void SendMessage(EventArgs x)
         {
-            if (Manager.UseGuide && Guide.IsVisible) return;
-
             KeyEventArgs k = new KeyEventArgs();
             GamePadEventArgs g = new GamePadEventArgs(PlayerIndex.One);
 

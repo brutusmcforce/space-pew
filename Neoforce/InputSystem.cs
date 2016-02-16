@@ -24,7 +24,6 @@
 using System;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Input;
 ////////////////////////////////////////////////////////////////////////////
 
@@ -393,8 +392,6 @@ namespace TomShane.Neoforce.Controls
     ////////////////////////////////////////////////////////////////////////////
     public virtual void Update(GameTime gameTime)
     {
-      if (manager.UseGuide && Guide.IsVisible) return;
-      
       #if (!XBOX && !XBOX_FAKE)
         MouseState ms = Mouse.GetState();
         KeyboardState ks = Keyboard.GetState();      

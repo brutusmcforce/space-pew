@@ -29,7 +29,6 @@ using System.Text;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
-using Microsoft.Xna.Framework.GamerServices;
 
 ////////////////////////////////////////////////////////////////////////////
 
@@ -997,8 +996,6 @@ namespace TomShane.Neoforce.Controls
     {
       flashTime = 0;
       
-      if (Manager.UseGuide && Guide.IsVisible) return;
-      
       if (!e.Handled)
       {
         if (e.Key == Keys.A && e.Control && mode != TextBoxMode.Password)
@@ -1237,8 +1234,6 @@ namespace TomShane.Neoforce.Controls
     ////////////////////////////////////////////////////////////////////////////        
     protected override void OnGamePadDown(GamePadEventArgs e)
     {
-      if (Manager.UseGuide && Guide.IsVisible) return;
-
       if (!e.Handled)
       {
         if (e.Button == GamePadActions.Click)
@@ -1254,22 +1249,8 @@ namespace TomShane.Neoforce.Controls
     ////////////////////////////////////////////////////////////////////////////
     private void HandleGuide(PlayerIndex pi)
     {
-      if (Manager.UseGuide && !Guide.IsVisible)
-      {        
-        Guide.BeginShowKeyboardInput(pi, "Enter Text", "", Text, GetText, pi.ToString());
-      }   
     }
-    ////////////////////////////////////////////////////////////////////////////
     
-    ////////////////////////////////////////////////////////////////////////////
-    private void GetText(IAsyncResult result)
-    {      
-      string res = Guide.EndShowKeyboardInput(result);
-      Text = res != null ? res : "";
-      Pos = text.Length;
-    }
-    ////////////////////////////////////////////////////////////////////////////
-
     ////////////////////////////////////////////////////////////////////////////        
     private void SetupBars()
     {
