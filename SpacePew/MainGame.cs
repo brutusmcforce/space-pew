@@ -15,6 +15,7 @@ using Color = Microsoft.Xna.Framework.Color;
 using Rectangle = Microsoft.Xna.Framework.Rectangle;
 using SpacePew.Extensions;
 using System.Linq;
+using System.Threading;
 
 namespace SpacePew
 {
@@ -136,7 +137,7 @@ namespace SpacePew
 
 			IsMouseVisible = true;
 
-			_graphics.CreateDevice();
+			//_graphics.CreateDevice();
 
 			//Cursor.Hide();
 
@@ -157,28 +158,46 @@ namespace SpacePew
 
 			_randomizer = new Random();
 
-			_udpClientGui = new UdpNetworkGui(this, _graphics, (UdpClient)NetworkClient, (UdpServer)NetworkServer);
-			Components.Add(_udpClientGui);
-		}
+            //StartServer();
+            //this.AddGameComponents();
 
-		/// <summary>
-		/// LoadContent will be called once per game and is the place to load
-		/// all of your content.
-		/// </summary>
-		protected override void LoadContent()
+            _udpClientGui = new UdpNetworkGui(this, _graphics, (UdpClient)NetworkClient, (UdpServer)NetworkServer);
+            Components.Add(_udpClientGui);
+        }
+
+        /// <summary>
+        /// LoadContent will be called once per game and is the place to load
+        /// all of your content.
+        /// </summary>
+        protected override void LoadContent()
 		{
-			_udpClientGui.Initialize();
+			//_udpClientGui.Initialize();
 
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 
 			_backgroundTexture = TextureManager.LoadTexture("stars");
 		}
 
-		/// <summary>
-		/// UnloadContent will be called once per game and is the place to unload
-		/// all content.
-		/// </summary>
-		protected override void UnloadContent()
+        private void StartServer()
+        {
+            string levelPath = AppDomain.CurrentDomain.BaseDirectory + "\\Levels\\hippie.zip"; // TODO: Välja
+            var level = LevelLoader.LoadLevel(levelPath, this.Content, GraphicsDevice);
+
+            NetworkServer.SetLevel(level);
+
+            Trace.WriteLine("CreateSession()");
+            NetworkServer.CreateSession();
+
+            new Thread(NetworkServer.Listen).Start();
+
+            NetworkClient.JoinSession("127.0.0.1", "Magnus");
+        }
+
+        /// <summary>
+        /// UnloadContent will be called once per game and is the place to unload
+        /// all content.
+        /// </summary>
+        protected override void UnloadContent()
 		{
 		}
 
